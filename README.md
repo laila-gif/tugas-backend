@@ -1,25 +1,25 @@
 ## Screenshot Testing Postman
 
 ### GET /api/products
-![GET](screenshots/GET.png)
+![GET](Bukti%20screenshots/GET.png)
 
-### Hasil GET /api/products
-![HASIL GET](screenshots/GET.png)
+### Hasil GET
+![HASIL GET](Bukti%20screenshots/GET.png)
 
 ### POST /api/products
-![POST](screenshots/POST.png)
+![POST](Bukti%20screenshots/POST.png)
 
-### Hasil POST /api/products
-![HASIL POST](screenshots/HASIL POST.png)
+### Hasil POST
+![HASIL POST](Bukti%20screenshots/HASIL%20POST.png)
 
 ### PUT /api/products/:id
-![PUT](screenshots/PUT.png)
+![PUT](Bukti%20screenshots/PUT.png)
 
-### Hasil PUT /api/products/:id
-![HASIL PUT](screenshots/HASIL PUT.png)
+### Hasil PUT
+![HASIL PUT](Bukti%20screenshots/HASIL%20PUT.png)
 
 ### DELETE /api/products/:id
-![DELETE](screenshots/DELETE.png)
+![DELETE](Bukti%20screenshots/DELETE.png)
 
-### Hasil DELETE /api/products/:id
-![HASIL DELETE](screenshots/HASIL DELETE.png)
+### Hasil DELETE
+![HASIL DELETE](Bukti%20screenshots/HASIL%20DELETE.png)
