@@ -1,7 +1,3 @@
-// ============================================================
-// routes/products.js  —  Semua route /api/products
-// ============================================================
-
 const express  = require('express');
 const router   = express.Router();
 const db       = require('../database');
@@ -13,11 +9,6 @@ const {
   VALID_CATEGORIES,
 } = require('../middleware/validate');
 
-// ─────────────────────────────────────────
-// GET /api/products
-// Tampilkan semua produk.
-// Query opsional: ?category=Makanan
-// ─────────────────────────────────────────
 router.get('/', (req, res) => {
   const { category } = req.query;
 
@@ -40,11 +31,6 @@ router.get('/', (req, res) => {
   });
 });
 
-// ─────────────────────────────────────────
-// POST /api/products
-// Tambah produk baru.
-// Body: { name, price, stock, category }
-// ─────────────────────────────────────────
 router.post('/', validateCreate, (req, res) => {
   const { name, price, stock, category } = req.body;
 
