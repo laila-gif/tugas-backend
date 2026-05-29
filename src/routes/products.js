@@ -57,11 +57,6 @@ router.post('/', validateCreate, (req, res) => {
   return success(res, 201, 'Produk berhasil ditambahkan', product);
 });
 
-// ─────────────────────────────────────────
-// PUT /api/products/:id
-// Update harga dan/atau stok berdasarkan ID.
-// Body: { price?, stock? }
-// ─────────────────────────────────────────
 router.put('/:id', validateId, validateUpdate, (req, res) => {
   const { price, stock } = req.body;
 
@@ -82,10 +77,6 @@ router.put('/:id', validateId, validateUpdate, (req, res) => {
   );
 });
 
-// ─────────────────────────────────────────
-// DELETE /api/products/:id
-// Hapus produk berdasarkan ID.
-// ─────────────────────────────────────────
 router.delete('/:id', validateId, (req, res) => {
   const deleted = db.remove(req.productId);
 

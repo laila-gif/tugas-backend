@@ -1,8 +1,3 @@
-// ============================================================
-// database.js  —  In-Memory Database
-// Data disimpan di memori selama server berjalan.
-// ============================================================
-
 let products = [
   { id: 1, name: 'Nasi Goreng Spesial', price: 15000, stock: 50,  category: 'Makanan'    },
   { id: 2, name: 'Es Teh Manis',        price: 5000,  stock: 100, category: 'Minuman'    },
@@ -16,7 +11,6 @@ let products = [
 
 let nextId = 9;
 
-// Ambil semua produk; bisa difilter berdasarkan category
 const getAll = (category = null) => {
   if (category) {
     return products.filter(
@@ -26,17 +20,14 @@ const getAll = (category = null) => {
   return [...products];
 };
 
-// Ambil satu produk berdasarkan ID
 const getById = (id) => products.find((p) => p.id === id) || null;
 
-// Tambah produk baru
 const create = ({ name, price, stock, category }) => {
   const product = { id: nextId++, name, price, stock, category };
   products.push(product);
   return product;
 };
 
-// Update harga dan/atau stok berdasarkan ID
 const update = (id, updates) => {
   const index = products.findIndex((p) => p.id === id);
   if (index === -1) return null;
@@ -47,14 +38,12 @@ const update = (id, updates) => {
   return products[index];
 };
 
-// Hapus produk berdasarkan ID
 const remove = (id) => {
   const index = products.findIndex((p) => p.id === id);
   if (index === -1) return null;
   return products.splice(index, 1)[0];
 };
 
-// Cek duplikat nama (case-insensitive)
 const nameExists = (name, excludeId = null) =>
   products.some(
     (p) =>

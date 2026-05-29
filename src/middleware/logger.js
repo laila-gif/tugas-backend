@@ -1,7 +1,3 @@
-// ============================================================
-// middleware/logger.js  —  Custom request logger
-// ============================================================
-
 const logger = (req, res, next) => {
   const start = Date.now();
 

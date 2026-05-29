@@ -1,7 +1,3 @@
-// ============================================================
-// app.js  —  Entry point REST API Produk
-// ============================================================
-
 const express        = require('express');
 const productsRouter = require('./routes/products');
 const logger         = require('./middleware/logger');
@@ -10,16 +6,10 @@ const { error }      = require('./utils/response');
 const app  = express();
 const PORT = process.env.PORT || 3000;
 
-// ─────────────────────────────────────────
-// MIDDLEWARE GLOBAL
-// ─────────────────────────────────────────
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(logger);
 
-// ─────────────────────────────────────────
-// ROOT  —  Info singkat API
-// ─────────────────────────────────────────
 app.get('/', (req, res) => {
   res.status(200).json({
     success  : true,
@@ -35,21 +25,12 @@ app.get('/', (req, res) => {
   });
 });
 
-// ─────────────────────────────────────────
-// ROUTES
-// ─────────────────────────────────────────
 app.use('/api/products', productsRouter);
 
-// ─────────────────────────────────────────
-// 404
-// ─────────────────────────────────────────
 app.use((req, res) => {
   error(res, 404, `Route ${req.method} ${req.originalUrl} tidak ditemukan`);
 });
 
-// ─────────────────────────────────────────
-// ERROR HANDLER GLOBAL
-// ─────────────────────────────────────────
 app.use((err, req, res, next) => {
   console.error('[ERROR]', err.message);
   if (err.type === 'entity.parse.failed') {
@@ -58,9 +39,6 @@ app.use((err, req, res, next) => {
   error(res, 500, 'Terjadi kesalahan pada server');
 });
 
-// ─────────────────────────────────────────
-// START SERVER
-// ─────────────────────────────────────────
 app.listen(PORT, () => {
   const line = '='.repeat(52);
   console.log(`\n${line}`);

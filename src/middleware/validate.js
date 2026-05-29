@@ -1,17 +1,11 @@
-// ============================================================
-// middleware/validate.js  —  Validasi request body & params
-// ============================================================
-
 const { error } = require('../utils/response');
 
 const VALID_CATEGORIES = ['Makanan', 'Minuman', 'Alat Tulis'];
 
-// Validasi POST /api/products
 const validateCreate = (req, res, next) => {
   const { name, price, stock, category } = req.body;
   const errors = [];
 
-  // name
   if (!name || typeof name !== 'string' || name.trim() === '') {
     errors.push('name wajib diisi dan harus berupa teks');
   } else if (name.trim().length < 2) {
@@ -20,7 +14,6 @@ const validateCreate = (req, res, next) => {
     errors.push('name maksimal 100 karakter');
   }
 
-  // price
   if (price === undefined || price === null) {
     errors.push('price wajib diisi');
   } else if (typeof price !== 'number' || !Number.isInteger(price)) {
@@ -31,7 +24,6 @@ const validateCreate = (req, res, next) => {
     errors.push('price terlalu besar (maks 100.000.000)');
   }
 
-  // stock
   if (stock === undefined || stock === null) {
     errors.push('stock wajib diisi');
   } else if (typeof stock !== 'number' || !Number.isInteger(stock)) {
@@ -42,7 +34,6 @@ const validateCreate = (req, res, next) => {
     errors.push('stock terlalu besar (maks 1.000.000)');
   }
 
-  // category
   if (!category || typeof category !== 'string' || category.trim() === '') {
     errors.push(`category wajib diisi. Pilihan: ${VALID_CATEGORIES.join(', ')}`);
   } else if (!VALID_CATEGORIES.includes(category.trim())) {
@@ -58,7 +49,6 @@ const validateCreate = (req, res, next) => {
   next();
 };
 
-// Validasi PUT /api/products/:id
 const validateUpdate = (req, res, next) => {
   const { price, stock } = req.body;
   const errors = [];
@@ -94,7 +84,6 @@ const validateUpdate = (req, res, next) => {
   next();
 };
 
-// Validasi ID pada params
 const validateId = (req, res, next) => {
   const id = Number(req.params.id);
 

@@ -1,7 +1,3 @@
-// ============================================================
-// utils/response.js  —  Helper format response JSON seragam
-// ============================================================
-
 const success = (res, statusCode, message, data = null, extra = {}) => {
   const body = { success: true, message, ...extra };
   if (data !== null) body.data = data;
