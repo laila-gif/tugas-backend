@@ -1,0 +1,19 @@
+{
+  "name": "products-rest-api",
+  "version": "1.0.0",
+  "description": "REST API Produk menggunakan ExpressJS - Tugas Backend",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "keywords": ["expressjs", "rest-api", "products", "backend"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
